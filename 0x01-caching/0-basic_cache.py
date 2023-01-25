@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Task 1's modules
+Task 1's modules.
 """
 
 
