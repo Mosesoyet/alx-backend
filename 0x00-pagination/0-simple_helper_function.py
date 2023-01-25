@@ -2,6 +2,7 @@
 """
 Task 0's module
 """
+
 from typing import Tuple
 
 
