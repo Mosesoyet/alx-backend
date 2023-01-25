@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-""" 5. LFU Caching
+""" 
+5. LFU Caching
 """
 
 from enum import Enum
