@@ -12,3 +12,9 @@ def index():
     """ The home page for the website
     """
     return render_template("index.html")
+
+
+if __name__ == "__main__":
+    """Run the app
+    """
+    app.run()
