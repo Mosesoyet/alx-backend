@@ -3,6 +3,7 @@
 app's module
 """
 from flask import Flask, render_template, request, g as glob
+from typing import Dict, Union
 from flask_babel import Babel
 
 
@@ -50,6 +51,11 @@ def get_locale():
     locale = request.args.get('locale', '')
     if locale in app.config["LANGUAGES"]:
         return locale
+    if glob.user and glob.user['locale'] in app.config["LANGUAGES"]:
+        return g.user['locale']
+    header_locale = request.headers.get('locale', '')
+    if header_locale in app.config["LANGUAGES"]:
+        return header_locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
@@ -57,7 +63,7 @@ def get_locale():
 def index():
     """ The home page for the website
     """
-    return render_template("5-index.html")
+    return render_template("6-index.html")
 
 
 if __name__ == "__main__":
