@@ -2,7 +2,7 @@
 """
 app's module
 """
-from flask import Flask, render_template, request, g as glob
+from flask import Flask, render_template, request, g
 from typing import Dict, Union
 from flask_babel import Babel
 
@@ -41,7 +41,7 @@ def before_request() -> None:
     """Performs some routines before each request's resolution.
     """
     user = get_user()
-    glob.user = user
+    g.user = user
 
 
 @babel.localeselector
@@ -51,7 +51,7 @@ def get_locale():
     locale = request.args.get('locale', '')
     if locale in app.config["LANGUAGES"]:
         return locale
-    if glob.user and glob.user['locale'] in app.config["LANGUAGES"]:
+    if g.user and glob.user['locale'] in app.config["LANGUAGES"]:
         return g.user['locale']
     header_locale = request.headers.get('locale', '')
     if header_locale in app.config["LANGUAGES"]:

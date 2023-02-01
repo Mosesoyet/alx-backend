@@ -2,7 +2,7 @@
 """
 app's module
 """
-from flask import Flask, render_template, request, g as glob
+from flask import Flask, render_template, request, g
 from flask_babel import Babel
 
 
@@ -40,7 +40,7 @@ def before_request() -> None:
     """Performs some routines before each request's resolution.
     """
     user = get_user()
-    glob.user = user
+    g.user = user
 
 
 @babel.localeselector
