@@ -77,7 +77,7 @@ def get_timezone() -> str:
 def index():
     """ The home page for the website
     """
-    return render_template("6-index.html")
+    return render_template("7-index.html")
 
 
 if __name__ == "__main__":
